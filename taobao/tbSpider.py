@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 import copy
 import re
-
 import pymongo
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
