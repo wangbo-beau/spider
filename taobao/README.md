@@ -6,3 +6,4 @@
 2. 下载火狐或者谷歌等浏览器的驱动，并将驱动文件所在目录加入环境变量
 3. 安装MongoDB的操作模块：pip install pymongo
 4. 安装beautifulsoup：pip install bs4
+ 
