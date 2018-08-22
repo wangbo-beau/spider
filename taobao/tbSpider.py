@@ -1,4 +1,9 @@
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2017/8/23 10:10
+# @Author  : wangbo
+# @File    : tbSpider.py
+
 import copy
 import re
 import pymongo
