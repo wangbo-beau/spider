@@ -8,5 +8,6 @@
 4. 安装beautifulsoup：pip install bs4
 
 代码运行结果：
-https://github.com/wangbo-beau/spider/blob/master/taobao/console%E7%BB%93%E6%9E%9C.png
+
+![image](https://github.com/wangbo-beau/spider/blob/master/taobao/console%E7%BB%93%E6%9E%9C.png)
 ![image](https://github.com/wangbo-beau/spider/blob/master/taobao/MongoDB%E7%BB%93%E6%9E%9C.png)
