@@ -99,8 +99,8 @@ def save_product(result):
         if db[MONGO_COLLECTION].insert_one(item):
             print('save success!')
     except Exception as e:
-        print(e)
         print('save fail!')
+        print(e) 
 
 if __name__=="__main__":
     for i in range(1, MAX_PAGE + 1):
