@@ -26,6 +26,8 @@ MONGO_COLLECTION = 'products'
 # 连接到数据库
 client = pymongo.MongoClient(MONGO_URL)
 db = client[MONGO_DB]
+# 如果数据库有用户名和密码验证，则加入下一行
+# db.authenticate(name='username',password='password')
 # 设置爬取最大页数和关键词
 MAX_PAGE = 100
 KEYWORD = '写手'
