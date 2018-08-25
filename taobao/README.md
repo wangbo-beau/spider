@@ -1,4 +1,6 @@
 
+tbSpider: 淘宝爬虫源码
+
 代码采用的是MongoDB数据库，使用pymongo模块进行操作，驱动使用的是火狐，解析模块使用的是beautifulsoup
 项目下geckodriver.exe 和 chromedriver.exe 分别为火狐和谷歌的驱动
 
