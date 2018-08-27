@@ -1,0 +1,1 @@
+python D:\气象爬虫相关\cma_data_spider\world_air\spider_main.py

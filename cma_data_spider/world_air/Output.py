@@ -1,0 +1,46 @@
+# -*- coding:utf-8 -*-
+
+from mysql import connector
+
+class Output(object):
+    def __init__(self):
+        self.table_name = ""
+        self.sqlc = " (id int(11) NOT NULL AUTO_INCREMENT,station_id int(10) DEFAULT NULL," \
+                    "station_name varchar(255) DEFAULT NULL,year int(4) DEFAULT NULL," \
+                    "mon int(4) DEFAULT NULL,day int(4) DEFAULT NULL,hour int(4) DEFAULT NULL," \
+                    "vdm float DEFAULT NULL,ball_rle_time float DEFAULT NULL,time_dev_wq float DEFAULT NULL," \
+                    "lat_dev float DEFAULT NULL,lon_dev float DEFAULT NULL,prs_hwc float DEFAULT NULL," \
+                    "gph float DEFAULT NULL,win_d float DEFAULT NULL,win_s float DEFAULT NULL," \
+                    "tem float DEFAULT NULL,dpt float DEFAULT NULL,dtd float DEFAULT NULL," \
+                    "PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+        self.conn = connector.connect(host="localhost",user="root",password="",database="world_airdata",charset="utf8")
+        # 目前没用该段
+        # self.sqli_attr = "(station_id,station_name,year,mon,day,hour," \
+        #                  "prs,prs_sea,win_s_max,win_s_inst_max,win_d_inst_max,win_d_avg_10mi," \
+        #                  "win_s_avg_10mi,win_d_s_max,tem,rhu,vap,pre_1h)"
+        self.sqli = " values(null,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    def create(self):
+        cursor = self.conn.cursor()
+        drop_sql = "drop table if exists " + self.table_name
+        cursor.execute(drop_sql)
+        create_sql = "CREATE TABLE " + self.table_name + "" + self.sqlc
+        # 输出测试代码
+        # print(create_sql)
+        cursor.execute(create_sql)
+        cursor.close()
+        self.conn.commit()
+    def insert(self,data_result_list):
+        insert_sql = "insert into "+self.table_name+self.sqli
+        cursor = self.conn.cursor()
+        # 输出测试代码
+        # print(data_result_list)
+
+        cursor.executemany(insert_sql,data_result_list)
+        cursor.close()
+        self.conn.commit()
+
+    def close(self):
+        self.conn.close()
+
+
+#create table world_airdata(id int(11) NOT NULL AUTO_INCREMENT,station_id int(10) DEFAULT NULL,station_name varchar(255) DEFAULT NULL,year int(4) DEFAULT NULL,mon int(4) DEFAULT NULL,day int(4) DEFAULT NULL,hour int(4) DEFAULT NULL,vdm float DEFAULT NULL,ball_rle_time float DEFAULT NULL,time_dev_wq float DEFAULT NULL,lat_dev float DEFAULT NULL,lon_dev float DEFAULT NULL,prs_hwc float DEFAULT NULL,gph float DEFAULT NULL,win_d float DEFAULT NULL,win_s float DEFAULT NULL,tem float DEFAULT NULL,dpt float DEFAULT NULL,dtd float DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
