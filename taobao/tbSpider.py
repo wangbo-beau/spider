@@ -16,7 +16,11 @@ from urllib.parse import quote
 from bs4 import BeautifulSoup
 
 # 启动安装的获取浏览器驱动
+# 如果已经添加到环境变量的Path中，则使用下面的一行代码
 browser = webdriver.Firefox()
+# 如果没有添加到环境变量的Path中，则在此指定驱动程序的位置，如下行
+# browser = webdriver.Firefox('geckodriver.exe')
+
 # 设置等待时间
 wait = WebDriverWait(browser, 10)
 # 设置要存储到数据库的url，数据库名称，集合名称（对应mysql中的数据表名称）
